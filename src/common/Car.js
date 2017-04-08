@@ -60,7 +60,7 @@ class Car extends PhysicalObject {
         }
     }
 
-    onModelLoaded(){
+    onModelLoaded() {
         //0 chasis
         //6 lights
         //7 bumper
@@ -86,7 +86,7 @@ class Car extends PhysicalObject {
         }
     }
 
-    // reduce the perpendicular component of the velocity
+      // reduce the perpendicular component of the velocity
     adjustCarMovement() {
 
         // gradually slow down the angular velocity

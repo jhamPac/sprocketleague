@@ -17,14 +17,14 @@ class SLServerEngine extends ServerEngine {
 
         let makePlayerCar = (team) => {
             let playerTeam;
-            if (team == 'red'){ playerTeam = 'red'}
-            else if (team == 'blue'){ playerTeam = 'blue'}
+            if (team == 'red') { playerTeam = 'red' }
+            else if (team == 'blue') { playerTeam = 'blue' }
             else {
                 //make sure players join the right team
-                if (this.gameEngine.metaData.teams.red.players.length < this.gameEngine.metaData.teams.blue.players.length){
+                if (this.gameEngine.metaData.teams.red.players.length < this.gameEngine.metaData.teams.blue.players.length) {
                     playerTeam = 'red'
                 }
-                else{
+                else {
                     playerTeam = 'blue'
                 }
             }
@@ -35,7 +35,7 @@ class SLServerEngine extends ServerEngine {
                 this.gameEngine.makeCar(socket.playerId, playerTeam);
                 this.updateMetaData();
             }
-            else{
+            else {
                 console.error('no such team', playerTeam);
             }
         };
@@ -75,10 +75,10 @@ class SLServerEngine extends ServerEngine {
     }
 
 
-    updateMetaData(socket){
-        if (socket){
+    updateMetaData(socket) {
+        if (socket) {
             socket.emit('metaDataUpdate', this.gameEngine.metaData);
-        } else{
+        } else {
             //emit to all
             // delay so player socket can catch up
             setTimeout(() => {

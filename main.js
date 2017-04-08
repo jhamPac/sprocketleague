@@ -38,8 +38,8 @@ if (process.env.MATCHMAKER) {
 
 // can define routes after the matchmaker
 server.get('/gameStatus', (req, res) => { res.send(serverEngine.gameStatus()); });
-server.get('/', (req, res) => { res.sendFile(INDEX); });
 server.use('/', express.static(path.join(__dirname, '.')));
+server.get('/', (req, res) => { res.sendFile(INDEX); });
 
 // start the game
 serverEngine.start();
