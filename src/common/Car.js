@@ -21,7 +21,7 @@ class Car extends PhysicalObject {
         // create the physics body
         this.gameEngine = gameEngine;
         CANNON = this.gameEngine.physicsEngine.CANNON;
-        this.physicsObj = gameEngine.physicsEngine.addBox(1, 1, 2.9, MASS, 0);
+        this.physicsObj = gameEngine.physicsEngine.addBox(1, 10, 2.9, MASS, 0);
         this.physicsObj.position.set(this.position.x, this.position.y, this.position.z);
         this.physicsObj.angularDamping = 0.1;
 
@@ -30,9 +30,9 @@ class Car extends PhysicalObject {
             let el = this.renderEl = document.createElement('a-entity');
 
             this.carEl = document.createElement('a-gltf-model');
-            this.carEl.setAttribute('gltf-model', '#car-obj');
-            this.carEl.setAttribute('position', '0 -1.7 0.4');
-            this.carEl.setAttribute('rotation', '0 180 0');
+            this.carEl.setAttribute('gltf-model', `#swordMan`);
+            this.carEl.setAttribute('position', '0 1 0');
+            this.carEl.setAttribute('rotation', '0 0 0');
 
             this.headLight = document.createElement('a-entity');
             this.headLight.setAttribute('light', 'type: spot; color: #ffffff; intensity: 1; angle: 47; penumbra: 0.26');
@@ -44,7 +44,7 @@ class Car extends PhysicalObject {
             if (this.carEl.components['gltf-model'].model){
                 this.onModelLoaded();
             } else {
-                this.carEl.addEventListener('model-loaded',this.onModelLoaded.bind(this));
+                this.carEl.addEventListener('model-loaded', this.onModelLoaded.bind(this));
             }
 
             let p = this.position;
@@ -53,7 +53,7 @@ class Car extends PhysicalObject {
             el.object3D.quaternion.set(q.x, q.y, q.z, q.w);
             el.setAttribute('game-object-id', this.id);
 
-            el.appendChild(this.headLight);
+            // el.appendChild(this.headLight);
             el.appendChild(this.carEl);
             scene.appendChild(el);
 
@@ -134,20 +134,20 @@ class Car extends PhysicalObject {
         this.refreshFromPhysics();
 
         if (this.scene){
-            if(this.isMovingForwards){
+            if (this.isMovingForwards) {
                 this.turnOffReverseLight();
             }
-            else{
+            else {
                 this.turnOnReverseLight();
             }
         }
     }
 
     updateTeamColor(){
-        if (this.team =='red'){
+        if (this.team =='red') {
             this.setColor(213, 63, 63);
         }
-        else{
+        else {
             this.setColor(105, 171, 252);
         }
     }

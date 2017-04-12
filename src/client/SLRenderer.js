@@ -43,7 +43,7 @@ class SLRenderer extends AFrameRenderer {
 
             this.frameNum = 0;
 
-            document.querySelector("a-assets").addEventListener('loaded', ()=>{
+            document.querySelector("a-assets").addEventListener('loaded', () => {
                 console.log('assets loaded');
 
                 this.emit('ready');
@@ -64,10 +64,10 @@ class SLRenderer extends AFrameRenderer {
 
         if (this.clientEngine.isOwnedByPlayer(objData)) {
             //setup chase camera, disable default camera controls
-            document.querySelector('.chaseCamera').setAttribute('chase-look-controls', `target: a-entity[game-object-id="${objData.id}"]`);
-            document.querySelector('.chaseCamera').setAttribute('camera', 'active', true);
+            // document.querySelector('.chaseCamera').setAttribute('chase-look-controls', `target: a-entity[game-object-id="${objData.id}"]`);
+            // document.querySelector('.chaseCamera').setAttribute('camera', 'active', true);
 
-            document.querySelector('.spectatorCamera').setAttribute('camera','active', false);
+            document.querySelector('.spectatorCamera').setAttribute('camera','active', true);
             // document.querySelector('a-entity[camera]').removeAttribute('look-controls');
             // document.querySelector('a-entity[camera]').removeAttribute('wasd-controls');
 

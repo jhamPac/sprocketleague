@@ -1,10 +1,15 @@
 'use strict';
 
-const ServerEngine = require('lance-gg').ServerEngine;
+// Pull in what you are going to extend
+const LANCE = require('lance-gg');
+const ServerEngine = LANCE.ServerEngine;
 
 class SLServerEngine extends ServerEngine {
+
     constructor(io, gameEngine, inputOptions) {
         super(io, gameEngine, inputOptions);
+
+        // These have to be serialized because they get sent over the wire
         this.serializer.registerClass(require('../common/Car'));
         this.serializer.registerClass(require('../common/Ball'));
         this.serializer.registerClass(require('../common/Arena'));
@@ -41,12 +46,13 @@ class SLServerEngine extends ServerEngine {
         };
 
         // handle client restart requests
-        socket.on('requestRestart', makePlayerCar);
-        socket.on('requestMetaDataUpdate', ()=>{
+        makePlayerCar();
+
+        socket.on('requestMetaDataUpdate', () => {
             this.updateMetaData(socket);
         });
 
-        socket.on('keepAlive', ()=>{
+        socket.on('keepAlive', () => {
             this.resetIdleTimeout(socket);
         });
 

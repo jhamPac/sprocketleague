@@ -20,7 +20,7 @@ class SLGameEngine extends GameEngine {
 
         this.numCars = 0;
         this.numBalls = 0;
-        this.metaData= {
+        this.metaData = {
             teams: {
                 red: {
                     players: [],
@@ -38,7 +38,7 @@ class SLGameEngine extends GameEngine {
 
     gameInit() {
         this.arena = new Arena(++this.world.idCount, this);
-        this.arena.position.y = -15.4;
+        this.arena.position.y = 1;
         this.addObjectToWorld(this.arena);
     }
 
@@ -85,7 +85,7 @@ class SLGameEngine extends GameEngine {
         // create a car for this client
         let x = Math.random() * 20 - 10;
         let z = Math.random() * 20 - 10;
-        let position = new ThreeVector(x, 10, z);
+        let position = new ThreeVector(0, 0, 0);
         let car = new Car(++this.world.idCount, this, position);
         car.playerId = playerId;
         car.team = team;
@@ -93,7 +93,7 @@ class SLGameEngine extends GameEngine {
         this.numCars++;
 
         if (this.numCars === 1)
-            this.makeBall();
+            // this.makeBall();
 
         return car;
     }

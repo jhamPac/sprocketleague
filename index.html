@@ -4,6 +4,7 @@
         <script src="/socket.io/socket.io.js"></script>
         <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
         <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.2.7/dist/aframe-extras.min.js"></script>
+        <script type="text/javascript" src="dist/bundle.js"></script>
         <style>
             html, body {
                 padding: 0;
@@ -12,22 +13,23 @@
         </style>
     </head>
     <body>
-        <script type="text/javascript" src="dist/bundle.js"></script>
+
         <a-scene networked-physics vr-mode-ui="enabled: true">
+
             <a-assets>
-                <a-asset-item id="car-obj" src="resources/models/volks.gltf"></a-asset-item>
-                <a-asset-item id="stadium" src="resources/models/castle.gltf"></a-asset-item>
+                <a-asset-item id="swordMan" src="resources/models/sword_man.gltf"></a-asset-item>
+                <a-asset-item id="tents" src="resources/models/tentCity.gltf"></a-asset-item>
                 <a-asset-item id="ball" src="resources/images/football_equi.jpg"></a-asset-item>
             </a-assets>
 
             <!-- Camera -->
-            <a-entity class="chaseCamera" camera="fov: 80; active: false;" position="0 0 0" rotation="0 0 0"></a-entity>
-            <a-entity class="spectatorCamera" camera="fov: 85; active: true;" look-controls wasd-controls="fly: true; acceleration: 500;" position="0 44 75" rotation="-51.3 0 0"></a-entity>
+            <!-- <a-entity class="chaseCamera" camera="fov: 80; active: false;" position="0 0 0" rotation="0 0 0"></a-entity> -->
+            <a-entity class="spectatorCamera" camera="fov: 85; active: true;" look-controls wasd-controls="fly: true; acceleration: 500;" position="1.25 5 40" rotation="0 0 0"></a-entity>
 
-            <!--<a-entity light="type: ambient; color: #fbc4c4; intensity: 0.08;" position="100 -160 -100"></a-entity>-->
-            <a-entity light="type: directional; color: #fff; intensity: 0.18;" position="24 44 - 68"></a-entity>
+            <a-entity light="type: ambient; color: #fbc4c4; intensity: 0.08;" position="100 -160 -100"></a-entity>
+            <!-- <a-entity light="type: directional; color: #fff; intensity: 0.18;" position="24 44 - 68"></a-entity>
             <a-entity light="type: spot; color: #fff; intensity: 0.4; penumbra: 0.04" position="0 133 200" rotation="13 0 0"></a-entity>
-            <a-entity light="type: spot; color: #fff; intensity: 0.4; penumbra: 0.04" position="0 133 -200" rotation="13 180 0"></a-entity>
+            <a-entity light="type: spot; color: #fff; intensity: 0.4; penumbra: 0.04" position="0 133 -200" rotation="13 180 0"></a-entity> -->
 
             <!--<a-entity light="type: spot; angle: 27" position="-291 91 153" rotation="-15 -53 0"></a-entity>-->
 
