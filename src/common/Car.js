@@ -41,7 +41,7 @@ class Car extends PhysicalObject {
 
             // change car color
             // todo find out how to do this on gltf asset load
-            if (this.carEl.components['gltf-model'].model){
+            if (this.carEl.components['gltf-model'].model) {
                 this.onModelLoaded();
             } else {
                 this.carEl.addEventListener('model-loaded', this.onModelLoaded.bind(this));
